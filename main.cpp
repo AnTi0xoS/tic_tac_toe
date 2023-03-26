@@ -228,6 +228,7 @@ void markBoardAI(int pos)
     if (checkPossibleWin(player)) return;
     if (AI == 'O' && board[1][1] == '5')
     {
+        board[1][1] = AI;
         currentMove += 1;
         return;
     }

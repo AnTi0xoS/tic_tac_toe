@@ -211,6 +211,7 @@ void randomMoveAI()
     bool correctValue = false;
     while (!correctValue)
     {
+        srand(time(NULL));
         int x = rand() % 3;
         int y = rand() % 3;
         if (board[x][y] != 'X' && board[x][y] != 'O')

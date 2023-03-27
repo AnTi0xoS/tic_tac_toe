@@ -5,6 +5,7 @@
 using namespace std;
 
 char board[3][3] = { {'1','2','3'},{'4','5','6'},{'7','8','9'} };
+int possibleInput[9] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 char player = 'X';
 bool gameOver = false;
 bool incorrect = false;
@@ -285,6 +286,21 @@ int main() {
             drawBoard();
             cout << "Player " << player << ", enter a position (1-9): ";
             cin >> pos;
+            bool correctInput = false;
+            for (int i = 0; i < 9; i++)
+            {
+                if (pos == possibleInput[i])
+                {
+
+                    correctInput = true;
+                    break;
+                }
+            }
+            if (!correctInput)
+            {
+                std::cout << "Incorrect step!" << std::endl;
+                return 1;
+            }
             markBoard(pos);
 
             if (checkWin(player)) {

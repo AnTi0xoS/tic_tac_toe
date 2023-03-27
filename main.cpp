@@ -5,13 +5,24 @@ using namespace std;
 
 char board[3][3] = { {'1','2','3'},{'4','5','6'},{'7','8','9'} };
 int possibleInput[9] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-char player = 'X';
+
 bool gameOver = false;
 bool incorrect = false;
 
+char player = 'X';
 char gameMode = 'P';
 char AI = 'O';
 char currentMove = '1';
+
+void togglePlayer() {
+    if (player == 'X') {
+        player = 'O';
+    }
+    else {
+        player = 'X';
+    }
+}
+
 
 bool checkPossibleWin(char current)
 {
@@ -171,7 +182,7 @@ int main()
                 gameOver = true;
             }
             else {
-                togglePlayer(player);
+                togglePlayer();
             }
         }
     }
